@@ -1,19 +1,18 @@
 /* eslint-disable no-undef */
 describe('Manage Books page', () => {
   beforeEach(() => {
-   cy.fixture('books')
+    cy.fixture('books')
       .then((books) => {
-
-        books.forEach((element) => {
+        books.forEach(() => {
           cy.request('DELETE',
-            'https://panwenjie.herokuapp.com/books/' )
+            'https://nmgb.herokuapp.com/books/')
         })
       })
     cy.fixture('books')
       .then((books) => {
         books.forEach((book) => {
           cy.request('POST',
-            'https://panwenjie.herokuapp.com/books/', book)
+            'https://nmgb.herokuapp.com/books/', book)
         })
       })
     cy.visit('/')
