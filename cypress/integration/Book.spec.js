@@ -6,14 +6,14 @@ describe('Manage Books page', () => {
 
         books.forEach((element) => {
           cy.request('DELETE',
-            'https://panwenjie.herokuapp.com/books/' )
+            'https://qiunile.herokuapp.com/books/' )
         })
       })
     cy.fixture('books')
       .then((books) => {
         books.forEach((book) => {
           cy.request('POST',
-            'https://panwenjie.herokuapp.com/books/', book)
+            'https://qiunile.herokuapp.com/books/', book)
         })
       })
     cy.visit('/')
@@ -51,9 +51,9 @@ describe('Manage Books page', () => {
     cy.get('label').contains('Book Name').next().clear()
     cy.get('label').contains('Author Name').next().clear()
     cy.get('label').contains('Publisher Name').next().clear()
-    cy.get('label').contains('No (Enter a number between 1 and 1000)').next().type(33)
-    cy.get('label').contains('Price (Enter a number between 1 and 1000)').next().type(33)
-    cy.get('label').contains('Amount (Enter a number between 1 and 1000)').next().type(33)
+    cy.get('label').contains('No (Enter a number between 1 and 1000)').next().type(1)
+    cy.get('label').contains('Price (Enter a number between 1 and 1000)').next().type(1)
+    cy.get('label').contains('Amount (Enter a number between 1 and 1000)').next().type(1)
     cy.get('label').contains('Book Name').next().type('edited')
     cy.get('label').contains('Author Name').next().type('edited')
     cy.get('label').contains('Publisher Name').next().type('edited')
@@ -74,3 +74,12 @@ describe('Manage Books page', () => {
   })
 */
 })
+describe('Manage Books page', () => {
+  it('Add amounts of books', () => {
+     // Click trash/delete link of 3rd donation in list
+     cy.get('tbody').find('tr:nth-child(3)').find('td:nth-child(8)').click()
+     // Click confirmation button
+     cy.get('tbody').should('contain', 1)
+    })
+
+  })
