@@ -9,25 +9,25 @@
 </template>
 
 <script>
-  import firebase from 'firebase'
-  export default {
-    name: "Login",
-    data(){
-      return{};
-    },
-    methods:{
-      login:function(){
-        firebase.auth().signInWithEmailAndPassword(this.email,this.password).then(
-          function(user){
-            alter('You are now connected')
-          },
-          function(err){
-            alter('Oops.'+err.message)
-          }
-        );
-      }
+import firebase from 'firebase'
+export default {
+  name: "Login",
+  data(){
+    return{};
+   },
+   methods:{
+    login: function (){
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+         function (user){
+           alter ('You are now connected')
+         },
+         function (err){
+           alter ('Oops.'+err.message)
+         }
+      );
     }
-  }
+   }
+ }
 </script>
 
 <style scoped>
