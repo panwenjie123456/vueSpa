@@ -5,22 +5,14 @@ describe('Manage Books page', () => {
       .then((books) => {
         books.forEach(() => {
           cy.request('DELETE',
-<<<<<<< HEAD
             'https://nmgb.herokuapp.com/books/')
-=======
-            'https://qiunile.herokuapp.com/books/' )
->>>>>>> 372cc4e253181621daa38f29187de5720a68745c
         })
       })
     cy.fixture('books')
       .then((books) => {
         books.forEach((book) => {
           cy.request('POST',
-<<<<<<< HEAD
             'https://nmgb.herokuapp.com/books/', book)
-=======
-            'https://qiunile.herokuapp.com/books/', book)
->>>>>>> 372cc4e253181621daa38f29187de5720a68745c
         })
       })
     cy.visit('/')
